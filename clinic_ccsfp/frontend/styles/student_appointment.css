@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 10px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 100px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1.5px solid #ccc;
+    border-radius: 15px;
+    font-size: 12px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #007bff;
+}
+
+.calendar-container {
+    margin-top: 12px;
+    border: 1.5px solid #007bff;
+    border-radius: 8px;
+    padding: 10px;
+    background: #f0f4ff;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.month-year {
+    font-weight: bold;
+    font-size: 13px;
+    color: #333;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+    margin-bottom: 10px;
+}
+
+.day-header {
+    text-align: center;
+    font-size: 10px;
+    color: #555;
+    font-weight: bold;
+}
+
+.day-cell {
+    text-align: center;
+    font-size: 11px;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.day-cell:hover {
+    background: #e6f2ff;
+}
+
+.day-cell.selected {
+    background: #007bff;
+    color: white;
+}
+
+.day-cell.today {
+    background: #28a745;
+    color: white;
+}
+
+.time-slots {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.time-section {
+    flex: 1;
+}
+
+.time-section h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.time-slot {
+    padding: 5px;
+    font-size: 11px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background: white;
+}
+
+.time-slot:hover {
+    background: #dceeff;
+    border-color: #007bff;
+}
+
+.time-slot.selected {
+    background: #007bff;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 1px;
+}
+
+.btn {
+    padding: 6px 14px;
+    font-size: 12px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn-create {
+    background: #007bff;
+    color: white;
+}
+
+.btn-create:hover {
+    background: #0056b3;
+}
+
+.btn-cancel {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: #c82333;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    font-size: 12px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c3e6cb;
+    display: none;
+}

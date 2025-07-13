@@ -1,0 +1,471 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-image: url('../images/landing_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background-color: transparent;
+    border-bottom: gray 2px solid;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h6 {
+    font-size: 0.90rem;
+    color: white;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    position: relative;
+    left: 270px;
+    top: 3px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links ul li a:hover {
+    color: lightblue;
+}
+
+.book-now {
+    font-size: 0.90rem;
+    color: blue;
+    font-weight: bold;
+    background-color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    position: relative;
+    right: 30px;
+    top: 2px;
+}
+
+.book-now:hover {
+    background-color: lightblue;
+}
+
+.hero {
+    margin-left: 10%;
+    position: absolute;
+    top: 40%;
+    display: flex;
+}
+
+.hero-content {
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hero-content h3 {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.hero-content p {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 17px;
+    color: white;
+}
+
+.book-btn,
+.appointment-btn {
+    position: relative;
+    top: 180px;
+    padding: 10px 20px;
+    height: 36px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.book-btn {
+    right: 68%;
+    background-color: white;
+    color: black;
+}
+
+.book-btn:hover {
+    background-color: lightblue;
+}
+
+.appointment-btn {
+    right: 66%;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+/* ===== ABOUT SECTION ===== */
+.aboutccsfp {
+    background-color: #fff;
+    padding: 60px 20px;
+    color: #000;
+    height: 500px;
+}
+
+.aboutccsfp-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.ccsfphero-logo {
+    max-width: 500px;
+    text-align: center;
+}
+
+.ccsfphero-logo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+    right: 30%;
+    top: 36px;
+}
+
+.ccsfphero-logo h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    left: 53%;
+    bottom: 230px;
+}
+
+.ccsfphero-logo p {
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: justify;
+    position: relative;
+    left: 80%;
+    bottom: 220px;
+}
+
+.about-btn,
+.contact-btn {
+    position: relative;
+    top: 40px;
+    padding: 8px 20px;
+    height: 36px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-btn {
+    right: 140px;
+    background-color: black;
+    color: white;
+}
+
+.about-btn:hover {
+    background-color: lightblue;
+}
+
+.contact-btn {
+    right: 160px;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+}
+
+/* ===== STEPS SECTION ===== */
+.steps {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.steps h5 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.steps h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.steps p {
+    font-size: 15px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.step {
+    background-color: #f8f8f8;
+    padding: 25px 20px;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.10);
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step-image {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.step h4 {
+    font-size: 18px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.step-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.step-buttons .book-link,
+.step-buttons .more {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.step-buttons .book-link {
+    background-color: #080808;
+    color: #fff;
+    border: none;
+}
+
+.step-buttons .more {
+    background-color: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+/* ===== DOCTOR SECTION ===== */
+.doctor {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 34px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.doctor-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.doctor-card {
+    background: #fdfdfd;
+    width: 310px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.10);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+}
+
+.doctor-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.doctor-card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+.doctor-card .title {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.doctor-card .icons i {
+    font-size: 18px;
+    color: #333;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    flex-direction: column;
+}
+
+.contact-section h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    font-size: 1em;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.contact-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.card {
+    width: 250px;
+    text-align: center;
+}
+
+.card img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    margin: 10px 0;
+}
+
+.card a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.card p {
+    color: #333;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ccc;
+}
+
+.footer-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer nav {
+    margin-bottom: 20px;
+}
+
+.footer nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.footer-bottom {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.footer-links a {
+    margin: 0 8px;
+    text-decoration: none;
+    color: #007bff;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/student_appointment.css" />
+    <title>Make an Appointment</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Make an appointment</h1>
+
+      <div class="success-message" id="successMessage">
+        Appointment successfully created!
+      </div>
+
+      <form id="appointmentForm">
+        <div class="form-row">
+          <div class="form-group">
+            <input
+              type="text"
+              id="studentId"
+              placeholder="Student ID"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input type="text" id="lastName" placeholder="Last Name" required />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="firstName"
+              placeholder="First Name"
+              required
+            />
+          </div>
+
+          <input type="email" id="email" placeholder="Email" required />
+
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="concern" placeholder="Concern" required />
+          </div>
+          <div class="form-group">
+            <select id="nurse" required>
+              <option value="">Nurse</option>
+              <option value="RN Rica">RN Rica</option>
+              <option value="RN Miko">RN Miko</option>
+              <option value="RN Anna">RN Anna</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select id="dateTime" required>
+              <option value="">Choose Date and Time</option>
+            </select>
+          </div>
+          <div class="buttons">
+            <button type="button" class="btn btn-cancel" id="cancelBtn">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-create" id="createBtn">
+              Create
+            </button>
+          </div>
+        </div>
+
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <button type="button" class="nav-btn" id="prevMonth">❮</button>
+            <div class="month-year" id="monthYear"></div>
+            <button type="button" class="nav-btn" id="nextMonth">❯</button>
+          </div>
+
+          <div class="calendar-grid" id="calendarGrid">
+            <div class="day-header">S</div>
+            <div class="day-header">M</div>
+            <div class="day-header">T</div>
+            <div class="day-header">W</div>
+            <div class="day-header">T</div>
+            <div class="day-header">F</div>
+            <div class="day-header">S</div>
+          </div>
+
+          <div class="time-slots">
+            <div class="time-section">
+              <h3>MORNING</h3>
+              <div class="time-grid" id="morningSlots">
+                <div class="time-slot" data-time="08:00">08:00</div>
+                <div class="time-slot" data-time="08:30">08:30</div>
+                <div class="time-slot" data-time="09:30">09:30</div>
+                <div class="time-slot" data-time="10:00">10:00</div>
+                <div class="time-slot" data-time="11:00">11:00</div>
+                <div class="time-slot" data-time="11:30">11:30</div>
+                <div class="time-slot" data-time="12:30">12:30</div>
+                <div class="time-slot" data-time="12:30">12:30</div>
+              </div>
+            </div>
+            <div class="time-section">
+              <h3>AFTERNOON</h3>
+              <div class="time-grid" id="afternoonSlots">
+                <div class="time-slot" data-time="02:00">02:00</div>
+                <div class="time-slot" data-time="04:00">04:00</div>
+                <div class="time-slot" data-time="06:00">06:00</div>
+                <div class="time-slot" data-time="08:00">08:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+    </div>
+
+    <script src="../scripts/student_appointment.js"></script>
+  </body>
+</html>

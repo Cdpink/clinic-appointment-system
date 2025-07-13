@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinic Admin Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.css"
+    />
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="sidebar-admin-container">
+      <nav>
+        <div class="sidebar-title">CLINIC ADMIN</div>
+        <ul class="sidebar-menu-list">
+          <li class="sidebar-menu-item active" data-section="dashboard">
+            <span class="sidebar-menu-icon">
+              <svg  
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9,22 9,12 15,12 15,22"></polyline>
+              </svg>
+            </span>
+            <span class="sidebar-menu-label">Dashboard</span>
+          </li>
+
+          <li class="sidebar-menu-item" data-section="profile">
+            <span class="sidebar-menu-icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="m22 21-3-3m0 0a2 2 0 0 0 0-4 2 2 0 0 0 0 4z"></path>
+              </svg>
+            </span>
+            <span class="sidebar-menu-label">profile</span>
+          </li>
+
+          <li class="sidebar-menu-item" data-section="files">
+            <span class="sidebar-menu-icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+                ></path>
+                <polyline points="14,2 14,8 20,8"></polyline>
+              </svg>
+            </span>
+            <span class="sidebar-menu-label">Files</span>
+          </li>
+
+          <li class="sidebar-menu-item" data-section="appointments">
+            <span class="sidebar-menu-icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
+            <span class="sidebar-menu-label">Appointments</span>
+          </li>
+
+          <li class="sidebar-menu-item" data-section="record">
+            <span class="sidebar-menu-icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
+            <span class="sidebar-menu-label">Record</span>
+          </li>
+          
+        </ul>
+
+        <button class="sidebar-logout-btn" onclick="handleLogout()">
+          <span class="sidebar-menu-icon">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16,17 21,12 16,7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          </span>
+          <span class="sidebar-menu-label">Logout</span>
+        </button>
+      </nav>
+
+      <div class="main-content">
+        <main class="main-wrapper">
+          <div id="dashboard-section" class="section-content active">
+            <div class="dashboard-container">
+              <div class="cards">
+                <div class="card">
+                  <h3>Files</h3>
+                  <p id="filescount">0</p>
+                </div>
+                <div class="card">
+                  <h3>Users</h3>
+                  <p id="usersCount">0</p>
+                </div>
+                <div class="card">
+                  <h3>Appointments</h3>
+                  <p id="appointmentCount">0</p>
+                </div>
+                <div class="card">
+                  <h3>Records</h3>
+                  <p id="recordsCount">0</p>
+                </div>
+              </div>
+
+              <div class="chart-container">
+                <canvas id="Chart" width="600" height="400"></canvas>
+              </div>
+            </div>
+          </div>
+
+<div id="profile-section" class="section-content admin">
+  <h2>Admin User Management</h2>
+  
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="adminFullName">Full Name:</label>
+      <input type="text" id="adminFullName" placeholder="Enter full name">
+    </div>
+    <div class="form-group">
+      <label for="adminUsername">Username:</label>
+      <input type="text" id="adminUsername" placeholder="Enter username">
+    </div>
+    <div class="form-group">
+      <label for="adminEmail">Email:</label>
+      <input type="email" id="adminEmail" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="adminPassword">Password:</label>
+      <input type="password" id="adminPassword" placeholder="Enter password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn" onclick="addAdminUser()">Add Admin</button>
+  </div>
+
+  <h3>List of Admin Users</h3>
+  <table id="adminUsersTable">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="adminUsersBody">
+    </tbody>
+  </table>
+</div>
+            <div id="files-section" class="section-content">
+              <div class="container" id="app">
+                <div class="main-card">
+                  <div class="card-body">
+                    <div class="header-section">
+                      <h2 class="title">Medical Records</h2>
+                      <div class="controls">
+                        <input
+                          type="text"
+                          class="search-input"
+                          placeholder="Search..."
+                          id="search-input"
+                        />
+                        <button
+                          class="btn btn-primary"
+                          id="new-consultation-btn"
+                        >
+                          New Consultation
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="content-area" id="content-area">
+                      <div id="list-view" class="view-section">
+                        <div class="empty-state" id="empty-state">
+                          <p>No consultation records yet.</p>
+                        </div>
+                        <div class="patient-list" id="patient-list"></div>
+                      </div>
+
+                      <div id="details-view" class="view-section hidden">
+                        <h6 class="section-title">
+                          Consultation Record Details
+                        </h6>
+                        <div class="details-content">
+                          <div class="details-column">
+                            <h6 class="column-title">Student Information</h6>
+                            <div class="info-list" id="student-info"></div>
+                          </div>
+                          <div class="details-column">
+                            <h6 class="column-title">Visit Information</h6>
+                            <div class="info-list" id="visit-info"></div>
+                          </div>
+                        </div>
+                        <div class="action-buttons">
+                          <button class="btn btn-primary" id="edit-btn">
+                            Edit
+                          </button>
+                          <button class="btn btn-secondary" id="back-btn">
+                            Back
+                          </button>
+                          <button class="btn btn-danger" id="delete-btn">
+                            Delete
+                          </button>
+                          <button class="btn btn-info" id="preview-btn">
+                            View Form
+                          </button>
+                          <button class="btn btn-success" id="export-btn">
+                            📄 Export to Word
+                          </button>
+                        </div>
+                      </div>
+
+                      <div id="edit-view" class="view-section hidden">
+                        <h5 class="section-title">Edit Consultation Record</h5>
+                        <div id="consultation-form"></div>
+                      </div>
+
+                      <div id="view-form-modal" class="modal hidden">
+                        <div class="modal-backdrop"></div>
+                        <div class="modal-dialog modal-large">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Consultation Form View</h5>
+                              <button class="btn-close" id="view-form-close-btn">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                              <div id="view-form-content" class="view-form-container"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="add-form-modal" class="modal hidden">
+              <div class="modal-backdrop"></div>
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">School Clinic Consultation Form</h5>
+                    <button class="btn-close" id="modal-close-btn">
+                      &times;
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="consultation-form-container">
+                      <div class="form-section">
+                        <h6 class="form-section-title">
+                          I. STUDENT INFORMATION
+                        </h6>
+                        <div class="form-grid">
+                      <div class="form-group">
+                       <label class="form-label">Student ID</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="studentId"
+                        />
+                       </div>
+                          <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="firstName"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">M.I.</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="middleInitial"
+                              maxlength="1"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="lastName"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Age</label>
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="age"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Gender</label>
+                            <select class="form-control" id="gender">
+                              <option value="">Select Gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Grade & Section</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="gradeSection"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Date of Birth</label>
+                            <input
+                              type="date"
+                              class="form-control"
+                              id="dateOfBirth"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="address"
+                            />
+                          </div>
+                      <div class="form-group">
+                        <label class="form-label">Parent/Guardian</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="parentGuardian"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          placeholder="Enter email"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Contact Number</label>
+                        <input
+                          type="tel"
+                          class="form-control"
+                          id="contactNumber"
+                        />
+                      </div>
+                        </div>
+                      </div>
+
+                      <div class="form-section">
+                        <h6 class="form-section-title">II. VISIT DETAILS</h6>
+                        <div class="form-grid">
+                          <div class="form-group">
+                            <label class="form-label">Date of Visit</label>
+                            <input
+                              type="date"
+                              class="form-control"
+                              id="dateOfVisit"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Time</label>
+                            <input
+                              type="time"
+                              class="form-control"
+                              id="timeOfVisit"
+                            />
+                          </div>
+                          <div class="form-group full-width">
+                            <label class="form-label"
+                              >Reason for Visit / Complaint</label
+                            >
+                            <textarea
+                              class="form-control"
+                              rows="3"
+                              id="reasonForVisit"
+                            ></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-section">
+                        <h6 class="form-section-title">III. VITAL SIGNS</h6>
+                        <div class="form-grid">
+                          <div class="form-group">
+                            <label class="form-label">Temperature (°C)</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="temperature"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Pulse Rate (bpm)</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pulseRate"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label"
+                              >Blood Pressure (mmHg)</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="bloodPressure"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label"
+                              >Respiratory Rate (bpm)</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="respiratoryRate"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-section">
+                        <h6 class="form-section-title">
+                          IV. ASSESSMENT / OBSERVATION
+                        </h6>
+                        <textarea
+                          class="form-control"
+                          rows="4"
+                          id="assessment"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-section">
+                        <h6 class="form-section-title">
+                          V. DIAGNOSIS / IMPRESSION
+                        </h6>
+                        <textarea
+                          class="form-control"
+                          rows="3"
+                          id="diagnosis"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-section">
+                        <h6 class="form-section-title">VI. ACTION TAKEN</h6>
+                        <div class="checkbox-grid">
+                          <div class="checkbox-group">
+                            <input
+                              type="checkbox"
+                              id="restedInClinic"
+                              class="form-checkbox"
+                            />
+                            <label for="restedInClinic">Rested in clinic</label>
+                          </div>
+                          <div class="checkbox-group">
+                            <input
+                              type="checkbox"
+                              id="givenFirstAid"
+                              class="form-checkbox"
+                            />
+                            <label for="givenFirstAid">Given first aid</label>
+                          </div>
+                          <div class="checkbox-group">
+                            <input
+                              type="checkbox"
+                              id="administeredMedication"
+                              class="form-checkbox"
+                            />
+                            <label for="administeredMedication"
+                              >Administered medication:</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="medicationDetails"
+                              placeholder="Medication details"
+                            />
+                          </div>
+                          <div class="checkbox-group">
+                            <input
+                              type="checkbox"
+                              id="sentHome"
+                              class="form-checkbox"
+                            />
+                            <label for="sentHome">Sent home</label>
+                          </div>
+                          <div class="checkbox-group">
+                            <input
+                              type="checkbox"
+                              id="referred"
+                              class="form-checkbox"
+                            />
+                            <label for="referred">Referred to:</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="referredTo"
+                              placeholder="Referred to"
+                            />
+                          </div>
+                          <div class="checkbox-group">
+                            <input
+                              type="checkbox"
+                              id="others"
+                              class="form-checkbox"
+                            />
+                            <label for="others">Others:</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="othersDetails"
+                              placeholder="Other actions taken"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-section">
+                        <h6 class="form-section-title">
+                          VII. RECOMMENDATIONS / REMARKS
+                        </h6>
+                        <textarea
+                          class="form-control"
+                          rows="4"
+                          id="recommendations"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-section">
+                        <h6 class="form-section-title">
+                          VIII. ATTENDING NURSE / SCHOOL HEALTH PERSONNEL
+                        </h6>
+                        <div class="form-grid">
+                          <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="nurseName"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Signature</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="nurseSignature"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Date</label>
+                            <input
+                              type="date"
+                              class="form-control"
+                              id="nurseDate"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-actions">
+                        <button class="btn btn-primary" id="save-btn">
+                          Save Consultation Record
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="preview-modal" class="modal hidden">
+              <div class="modal-backdrop"></div>
+              <div class="modal-dialog modal-large">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Consultation Form Preview</h5>
+                    <button class="btn-close" id="preview-close-btn">
+                      &times;
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="preview-content" class="preview-container"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="appointments-section" class="section-content">
+            <div class="admin_appointment_container">
+        <div class="filter-row">
+            <div class="filter-group">
+                <input type="text" id="searchName" placeholder="Search by name..." onkeyup="filterAppointments()">
+            </div>
+            <div class="filter-group">
+                <select id="filterStatus" onchange="filterAppointments()">
+                    <option value="">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Accepted">Accepted</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select id="filterNurse" onchange="filterAppointments()">
+                    <option value="">All Nurses</option>
+                    <option value="RN Rica">RN Rica</option>
+                    <option value="RN Miko">RN Miko</option>
+                    <option value="RN Anna">RN Anna</option>
+                </select>
+            </div>
+        </div>
+        
+      
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Concern</th>
+                <th>Schedule</th>
+                <th>Assigned Nurse</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentTable">
+            </tbody>
+          </table>
+        </div>
+    </div>
+ </main>
+   </div>
+    <div id="record-section" class="section-content">
+      <div class="record-table-container">
+      <div class="filters">
+        <input type="text" id="searchRecord" placeholder="Search by name..." oninput="filterRecords()" />
+        <select id="sortRecordDate" onchange="filterRecords()">
+          <option value="latest">Sort by Latest</option>
+          <option value="oldest">Sort by Oldest</option>
+        </select>
+      </div>
+      
+      <div class="table-container">
+        <table class="record-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Concern</th>
+              <th>Schedule</th>
+              <th>Assigned Nurse</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody id="recordTable">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+  </div>
+    </div>
+    <script src="../scripts/admin.js"></script>
+  </body>
+</html>
